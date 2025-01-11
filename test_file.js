@@ -3,6 +3,8 @@ var words = ['casa', 'alan', 'ciao', 'anta']
 
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 puzzle = `...1...........
 ..1000001000...
 ...0....0......
@@ -32,6 +34,8 @@ words = [
 ]
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 puzzle = `..1.1..1...
 10000..1000
 ..0.0..0...
@@ -56,6 +60,8 @@ words = [
   'cheese',
 ]
 crosswordSolver(puzzle, words)
+
+console.log("----------------------------------");
 
  puzzle = `...1...........
 ..1000001000...
@@ -87,40 +93,56 @@ crosswordSolver(puzzle, words)
 
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 console.log(" Test mismatch between number of input words and puzzle starting cells");
  puzzle = '2001\n0..0\n2000\n0..0'
  words = ['casa', 'alan', 'ciao', 'anta']
 crosswordSolver(puzzle, words)
+
+console.log("----------------------------------");
 
 console.log(" Test starting words higher than 2");
  puzzle = '0001\n0..0\n3000\n0..0'
  words = ['casa', 'alan', 'ciao', 'anta']
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 console.log(" Test words repetition")
  puzzle = '2001\n0..0\n1000\n0..0'
  words = ['casa', 'casa', 'ciao', 'anta']
 crosswordSolver(puzzle, words)
+
+console.log("----------------------------------");
 
 console.log(" Test empty puzzle")
  puzzle = ''
  words = ['casa', 'alan', 'ciao', 'anta']
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 console.log(" Test wrong format checks")
  puzzle = 123
  words = ['casa', 'alan', 'ciao', 'anta']
 crosswordSolver(puzzle, words)
+
+console.log("----------------------------------");
 
 console.log(" Test wrong format checks")
  puzzle = ''
  words = 123
 crosswordSolver(puzzle, words)
 
+console.log("----------------------------------");
+
 console.log(" Test multiple solutions")
  puzzle = '2000\n0...\n0...\n0...'
  words = ['abba', 'assa']
 crosswordSolver(puzzle, words)
+
+console.log("----------------------------------");
 
 console.log(" Test no solution")
  puzzle = '2001\n0..0\n1000\n0..0'
