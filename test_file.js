@@ -87,7 +87,7 @@ crosswordSolver(puzzle, words)
 
 crosswordSolver(puzzle, words)
 
-console.log("Test mismatch between number of input words and puzzle starting cells");
+console.log(" Test mismatch between number of input words and puzzle starting cells");
  puzzle = '2001\n0..0\n2000\n0..0'
  words = ['casa', 'alan', 'ciao', 'anta']
 crosswordSolver(puzzle, words)

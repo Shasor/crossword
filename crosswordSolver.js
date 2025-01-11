@@ -19,6 +19,10 @@ function puzzleMeetConditions(puzzle){
 		if (verbose >= 2){console.log("this puzzle isn't a string");};
 		return false;
 	};
+	if (puzzle === ''){ 
+		if (verbose >= 2){console.log("the puzzle is empty");};
+		return false;
+	};
 	let puzzleMap = puzzle.split("\n");
 	if (puzzleMap.length === 1){ 
 		if (verbose >= 2){console.log("this isn't a crossword but a single line");};
@@ -149,11 +153,11 @@ function canPlace(word, coordinate, grid) {
 		if ( verbose >= 3 ){ console.log("the word " + word + " fit");};
 		let noWrongChar = true;
 		for ( let i = 0; i < word.length && noWrongChar; i++){ // here we want to be sure we are not writing over a different letter of another word. 
-			let a = coordinate.row;
-			let b = coordinate.col;
-			if ( coordinate.isHorizontal ){ b += i; } else { a += i; };
-			if ( grid[a][b] >= "a" && grid[a][b] <= "z" && word[i] !== grid[a][b]){
-				if ( verbose >= 3 )console.log("our char : " + word[i] + " and the one in the grid : " + grid[a][coordinate.col + i])
+			let r = coordinate.row;
+			let c = coordinate.col;
+			if ( coordinate.isHorizontal ){ c += i; } else { r += i; };
+			if ( grid[r][c] >= "a" && grid[r][c] <= "z" && word[i] !== grid[r][c]){
+				if ( verbose >= 3 )console.log("our char : " + word[i] + " and the one in the grid : " + grid[r][c])
 				noWrongChar = false;
 			};
 		};
