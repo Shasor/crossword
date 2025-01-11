@@ -1,7 +1,7 @@
 # Variables
-FILE=fichier.js
-TEST_FILE=fichier_test.js
-TEMP_FILE=fichier_temp.js
+FILE=crosswordSolver.js
+TEST_FILE=test_file.js
+TEMP_FILE=temp_file.js
 
 # Règle par défaut
 all: combine execute clean
