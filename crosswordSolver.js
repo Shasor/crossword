@@ -148,21 +148,13 @@ function canPlace(word, coordinate, grid) {
 	if ( word.length === coordinate.length ){ // check if the word is the right size for the spot
 		if ( verbose >= 3 ){ console.log("the word " + word + " fit");};
 		let noWrongChar = true;
-		for ( let i = 0; i < word.length && noWrongChar; i++){
-			if ( coordinate.isHorizontal ){
-				if ( grid[coordinate.row][coordinate.col + i] >= "a" && 
-				     grid[coordinate.row][coordinate.col + i] <= "z" && 
-				     word[i] !== grid[coordinate.row][coordinate.col + i]){
-					if ( verbose >= 3 )console.log("our char : " + word[i] + " and the one in the grid : " + grid[coordinate.row][coordinate.col + i])
-						noWrongChar = false;
-					}
-			} else {
-				if ( grid[coordinate.row + i][coordinate.col] >= "a" && 
-					grid[coordinate.row + i][coordinate.col] <= "z" && 
-					word[i] !== grid[coordinate.row + i][coordinate.col]){
-				   if ( verbose >= 3 )console.log("our char : " + word[i] + " and the one in the grid : " + grid[coordinate.row + 1][coordinate.col])
-					   noWrongChar = false;
-				   }
+		for ( let i = 0; i < word.length && noWrongChar; i++){ // here we want to be sure we are not writing over a different letter of another word. 
+			let a = coordinate.row;
+			let b = coordinate.col;
+			if ( coordinate.isHorizontal ){ b += i; } else { a += i; };
+			if ( grid[a][b] >= "a" && grid[a][b] <= "z" && word[i] !== grid[a][b]){
+				if ( verbose >= 3 )console.log("our char : " + word[i] + " and the one in the grid : " + grid[a][coordinate.col + i])
+				noWrongChar = false;
 			};
 		};
 		if ( noWrongChar ){
@@ -177,7 +169,7 @@ function canPlace(word, coordinate, grid) {
 };
 
 function solve(coor, grid, words) {
-	const initial_grid = grid.map((row) => [...row]);
+	let initial_grid = grid.map((row) => [...row]);
 	if (verbose >= 3) console.log("\n" + initial_grid.map((row) => row.join("")).join("\n"))
 	if (words.length === 0 && coor.length === 0) {
 		return true;
@@ -193,6 +185,7 @@ function solve(coor, grid, words) {
 				words.splice(words_idx, 1);
 				coor.splice(coor_idx, 1);
 				if (solve(coor, grid, words)) return true;
+				//grid = initial_grid.map((row) => [...row]);
 				removeWord(grid, actual_coor, initial_grid);
 				words.splice(words_idx, 0, word);
 				coor.splice(coor_idx, 0, actual_coor);
@@ -203,6 +196,7 @@ function solve(coor, grid, words) {
 			};
 		};
 	};
+	initial_grid = null;
 	return false;
 };
 
