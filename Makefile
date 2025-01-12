@@ -10,7 +10,7 @@ all: combine execute clean
 combine:
 	@echo "Combining $(FILE) and $(TEST_FILE) into $(TEMP_FILE)..."
 	@cat $(FILE) > $(TEMP_FILE) # Ajouter le contenu de fichier.js
-	@echo "\n\n// ===== Tests =====\n" >> $(TEMP_FILE) # Ajouter une séparation
+	@echo "// ===== Tests =====\n" >> $(TEMP_FILE) # Ajouter une séparation
 	@cat $(TEST_FILE) >> $(TEMP_FILE) # Ajouter le contenu de fichier_test.js
 
 # Étape 2 : Exécuter le fichier temporaire
