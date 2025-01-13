@@ -1,18 +1,18 @@
 /* verbose is used for debugging. a value of 0 only print the result. 1 add detailled error messages
-   2 add informations about initial parameters.. 3 show the puzzle grid after each iteration in the backtracking algorithm and its manipulations.
-*/
+2 add informations about initial parameters.. 3 show the puzzle grid after each iteration in the backtracking algorithm and its manipulations */
 const verbose = 1;
 
-//is this char a number that we can use
+// is this char a number that we can use
 function is_numeric(c) {
 	return /^[0-2]+$/.test(c);
 }
-//is this the start of a word ?
+
+// is this the start of a word ?
 function is_start(c) {
 	return /^[1-2]+$/.test(c);
 }
 
-//is the puzzle in parameter correct ?
+// is the puzzle in parameter correct ?
 function puzzleMeetConditions(puzzle){
 	if (verbose >= 2){console.log(puzzle);};
 	if (typeof puzzle !== 'string'){
@@ -46,7 +46,7 @@ function puzzleMeetConditions(puzzle){
 	return true;
 };
 
-//is the words array correct ?
+// is the words array correct ?
 function wordsMeetConditions(words){
 	if (!Array.isArray(words)){
 		if (verbose >= 1){console.log("words isn't an array");};
@@ -68,7 +68,7 @@ function wordsMeetConditions(words){
 	return true;
 };
 
-//is it possible to complete this puzzle ?
+// is it possible to complete this puzzle ?
 function puzzleIsPossible(puzzle, words, coor){
 	let expectedNumberOfWords = 0;
 	for (let i = 0; i < puzzle.length; i++){
@@ -142,18 +142,6 @@ function removeWord(grid, changes) {
 	}
 }
 
-
-function canPlace(word, coordinate, grid) {
-	if (word.length !== coordinate.length){ if ( verbose >= 3 ){ console.log("the word can't fit");}; return false}; // check if the word is the right size for the spot
-	if ( verbose >= 3 ){ console.log("the word " + word + " fit");};
-
-	for (let i = 0; i < word.length; i++) {
-		let r = coordinate.row + (coordinate.isHorizontal ? 0 : i);
-		let c = coordinate.col + (coordinate.isHorizontal ? i : 0);
-		if (grid[r][c] !== '.' && grid[r][c] !== word[i]) return false;
-	}
-	return true;
-}
 function canPlace(word, coordinate, grid) {
 	if (word.length !== coordinate.length){ if ( verbose >= 3 ){ console.log("the word can't fit");}; return false}; // check if the word is the right size for the spot
 	let noWrongChar = true;
@@ -215,7 +203,7 @@ function shuffleArray(array) {
 }
 
 //solve the puzzle
-function crosswordSolver(puzzle, words){
+export function crosswordSolver(puzzle, words){
 	if ( !(puzzleMeetConditions(puzzle) && wordsMeetConditions(words)) ) { //are not both puzzle arg valid ?
 		return "Error";
 	};

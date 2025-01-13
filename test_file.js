@@ -1,11 +1,10 @@
-var puzzle = '2001\n0..0\n1000\n0..0'
-var words = ['casa', 'alan', 'ciao', 'anta']
+export var puzzles = []
+export var words = []
 
-crosswordSolver(puzzle, words)
+puzzles.push('2001\n0..0\n1000\n0..0')
+words.push(['casa', 'alan', 'ciao', 'anta'])
 
-console.log("----------------------------------");
-
-puzzle = `...1...........
+puzzles.push(`...1...........
 ..1000001000...
 ...0....0......
 .1......0...1..
@@ -17,26 +16,10 @@ puzzle = `...1...........
 .0.0......0....
 .0.0.....100...
 ...0......0....
-..........0....`
-words = [
-  'sun',
-  'sunglasses',
-  'suncream',
-  'swimming',
-  'bikini',
-  'beach',
-  'icecream',
-  'tan',
-  'deckchair',
-  'sand',
-  'seaside',
-  'sandals',
-]
-crosswordSolver(puzzle, words)
+..........0....`)
+words.push(['sun', 'sunglasses', 'suncream', 'swimming', 'bikini', 'beach', 'icecream', 'tan', 'deckchair', 'sand', 'seaside', 'sandals'])
 
-console.log("----------------------------------");
-
-puzzle = `..1.1..1...
+puzzles.push(`..1.1..1...
 10000..1000
 ..0.0..0...
 ..1000000..
@@ -46,24 +29,10 @@ puzzle = `..1.1..1...
 ....0..0...
 ..100000...
 ....0..0...
-....0......`
-words = [
-  'popcorn',
-  'fruit',
-  'flour',
-  'chicken',
-  'eggs',
-  'vegetables',
-  'pasta',
-  'pork',
-  'steak',
-  'cheese',
-]
-crosswordSolver(puzzle, words)
+....0......`)
+words.push(['popcorn', 'fruit', 'flour', 'chicken', 'eggs', 'vegetables', 'pasta', 'pork', 'steak', 'cheese'])
 
-console.log("----------------------------------");
-
- puzzle = `...1...........
+puzzles.push(`...1...........
 ..1000001000...
 ...0....0......
 .1......0...1..
@@ -75,76 +44,29 @@ console.log("----------------------------------");
 .0.0......0....
 .0.0.....100...
 ...0......0....
-..........0....`
- words = [
-  'sun',
-  'sunglasses',
-  'suncream',
-  'swimming',
-  'bikini',
-  'beach',
-  'icecream',
-  'tan',
-  'deckchair',
-  'sand',
-  'seaside',
-  'sandals',
-].reverse()
+..........0....`)
+words.push(['sun', 'sunglasses', 'suncream', 'swimming', 'bikini', 'beach', 'icecream', 'tan', 'deckchair', 'sand', 'seaside', 'sandals'].reverse())
 
-crosswordSolver(puzzle, words)
+puzzles.push('2001\n0..0\n2000\n0..0')
+words.push(['casa', 'alan', 'ciao', 'anta'])
 
-console.log("----------------------------------");
+puzzles.push('0001\n0..0\n3000\n0..0')
+words.push(['casa', 'alan', 'ciao', 'anta'])
 
-console.log(" Test mismatch between number of input words and puzzle starting cells");
- puzzle = '2001\n0..0\n2000\n0..0'
- words = ['casa', 'alan', 'ciao', 'anta']
-crosswordSolver(puzzle, words)
+puzzles.push('2001\n0..0\n1000\n0..0')
+words.push(['casa', 'casa', 'ciao', 'anta'])
 
-console.log("----------------------------------");
+puzzles.push('')
+words.push(['casa', 'alan', 'ciao', 'anta'])
 
-console.log(" Test starting words higher than 2");
- puzzle = '0001\n0..0\n3000\n0..0'
- words = ['casa', 'alan', 'ciao', 'anta']
-crosswordSolver(puzzle, words)
+puzzles.push(123)
+words.push(['casa', 'alan', 'ciao', 'anta'])
 
-console.log("----------------------------------");
+puzzles.push('')
+words.push(123)
 
-console.log(" Test words repetition")
- puzzle = '2001\n0..0\n1000\n0..0'
- words = ['casa', 'casa', 'ciao', 'anta']
-crosswordSolver(puzzle, words)
+puzzles.push('2000\n0...\n0...\n0...')
+words.push(['abba', 'assa'])
 
-console.log("----------------------------------");
-
-console.log(" Test empty puzzle")
- puzzle = ''
- words = ['casa', 'alan', 'ciao', 'anta']
-crosswordSolver(puzzle, words)
-
-console.log("----------------------------------");
-
-console.log(" Test wrong format checks")
- puzzle = 123
- words = ['casa', 'alan', 'ciao', 'anta']
-crosswordSolver(puzzle, words)
-
-console.log("----------------------------------");
-
-console.log(" Test wrong format checks")
- puzzle = ''
- words = 123
-crosswordSolver(puzzle, words)
-
-console.log("----------------------------------");
-
-console.log(" Test multiple solutions")
- puzzle = '2000\n0...\n0...\n0...'
- words = ['abba', 'assa']
-crosswordSolver(puzzle, words)
-
-console.log("----------------------------------");
-
-console.log(" Test no solution")
- puzzle = '2001\n0..0\n1000\n0..0'
- words = ['aaab', 'aaac', 'aaad', 'aaae']
-crosswordSolver(puzzle, words)
+puzzles.push('2001\n0..0\n1000\n0..0')
+words.push(['aaab', 'aaac', 'aaad', 'aaae'])
